@@ -14,7 +14,7 @@ COPY . /app
 ENV CI=true
 ENV PORT=3000
 
-CMD [ "yarn", "start" ]
+CMD [ "yarn", "run", "dev" ]
 
 FROM development AS build
 
