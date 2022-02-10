@@ -2,11 +2,11 @@ version: '3.8'
 
 services:
   frontend:
-    container_name: todoshare-frontend-app
+    container_name: lish-frontend-app
     build:
       context: .
       dockerfile: docker/app/Dockerfile
-    image: todoshare/frontend-app
+    image: lish/frontend-app
     ports:
       - "80:80"
     networks:
@@ -17,4 +17,4 @@ networks:
     external:
       name: bridge
   container-link:
-    name: todoshare.docker.internal
+    name: lish.docker.internal
