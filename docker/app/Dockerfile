@@ -1,11 +1,11 @@
 # 1. For build Svelte app
-FROM node:16.13.2-alpine AS development
+FROM node:16.14.0-alpine AS dev
 
 # Set working directory
 WORKDIR /app
 
-COPY package.json /app/package.json
-COPY yarn.lock /app/yarn.lock
+COPY /app/package.json /app/package.json
+COPY /app/yarn.lock /app/yarn.lock
 
 RUN yarn install --frozen-lockfile
 
@@ -16,7 +16,7 @@ ENV PORT=3000
 
 CMD [ "yarn", "run", "dev" ]
 
-FROM development AS build
+FROM dev AS build
 
 RUN yarn build
 

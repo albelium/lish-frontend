@@ -6,15 +6,18 @@ services:
     build:
       context: .
       dockerfile: docker/app/Dockerfile
+      target: dev
     image: lish/frontend-app
     ports:
-      - "80:80"
+      - "5431:3000"
     networks:
       - container-link
+    volumes:
+      - ./app:/app:rw
+      - /app/node_modules
 
 networks:
   default:
-    external:
-      name: bridge
+    name: bridge
   container-link:
     name: lish.docker.internal
